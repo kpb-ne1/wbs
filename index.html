@@ -831,7 +831,7 @@ function exportBranchCSV(){
   const out = [];
   hubList.forEach(h=>h.list.forEach(o=>{
     const r = {hub:h.name, office:o.name, total:o.total};
-    codes.forEach(c=>r[c]=o.counts[c]||0);
+    codes.forEach(c=>r[c]=o.counts[c]||'');
     out.push(r);
   }));
   const headers = [{k:'hub',l:'จุดรวมงาน'},{k:'office',l:'กฟฟ.ที่รับผิดชอบ'}].concat(codes.map(c=>({k:c,l:c})), [{k:'total',l:'รวม'}]);
